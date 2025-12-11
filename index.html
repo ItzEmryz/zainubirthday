@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    color: #fff;
+  }
+
+  /* Left pink sidebar */
+  .sidebar {
+    width: 35%; 
+    background-color: rgba(255, 182, 193, 0.95); 
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .sidebar h1 {
+    font-size: 2.5em;
+    color: #FF1493;
+    text-shadow: 2px 2px 5px #000;
+  }
+
+  .sidebar p {
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
+    margin-bottom: 15px;
+  }
+
+  .sidebar img {
+    border-radius: 15px;
+    margin-top: 15px;
+    width: 80%;
+  }
+
+  /* Right image area */
+  .right-side {
+    width: 65%; 
+    background: url('zainu.jpg') no-repeat center top;
+    background-size: cover;
+    position: relative;
+  }
+
+  /* Confetti overlay on full screen */
+  #confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF4081;
+    opacity: 0.7;
+    transform: rotate(45deg);
+    animation: fall 5s linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Left pink sidebar -->
+<div class="sidebar">
+  <h1>Happy Birthday, ZAINU! 🎉</h1>
+  <p>You make my world brighter 💖</p>
+  <p>Love you always ❤️</p>
+
+  <!-- Cute cat GIF -->
+  <img src="https://media.giphy.com/media/E6h7uDtoFrqpdS8O4P/giphy.gif" alt="Cute Birthday Cat GIF">
+
+  <!-- QR Code -->
+  <img src="done.png" alt="QR Code">
+
+  <p>💌 Sending you all my love!</p>
+  <p>🌸 You are my sunshine every day!</p>
+</div>
+
+<!-- Right side image -->
+<div class="right-side">
+  <div id="confetti"></div>
+</div>
+
+<script>
+// Confetti
+for(let i=0; i<150; i++){
+  let confetti = document.createElement('div');
+  confetti.classList.add('confetti-piece');
+  confetti.style.left = Math.random() * window.innerWidth + 'px';
+  confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+  confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+  confetti.style.width = confetti.style.height = (5 + Math.random() * 10) + 'px';
+  document.getElementById('confetti').appendChild(confetti);
+}
+</script>
+
+<!-- Music -->
+<audio autoplay loop>
+  <source src="your-song.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
